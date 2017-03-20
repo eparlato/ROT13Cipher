@@ -11,3 +11,4 @@
 .settings
 bin/
 taarget/
+/target/

@@ -5,9 +5,22 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 public class ROT13CipherTest {
-
-	@Test
-	public void testName() throws Exception {
-		assertTrue(true);
-	}
+	
+	// null => ""
+	
+	// "" => ""
+	
+	// "A" => "N"
+	
+	// "F" => "S"
+	
+	// "Z" => "M"
+	
+	// "b" => "o"
+	
+	// "JeDi" => "WrQv"
+	
+	// "rkgerzr" => "extreme"
+	
+	// "EXTREME" => "RKGERZR"
 }
