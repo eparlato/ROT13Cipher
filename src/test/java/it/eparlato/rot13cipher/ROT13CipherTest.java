@@ -5,8 +5,12 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 public class ROT13CipherTest {
-	
-	// null => ""
+
+	@Test
+	public void should_return_empty_if_input_is_null() throws Exception {
+		
+		assertEquals("", ROT13Cipher.transform(null));
+	}
 	
 	// "" => ""
 	
@@ -23,4 +27,12 @@ public class ROT13CipherTest {
 	// "rkgerzr" => "extreme"
 	
 	// "EXTREME" => "RKGERZR"
+	
+	public static class ROT13Cipher {
+
+		public static String transform(String input) {
+			return "";
+		}
+
+	}
 }
