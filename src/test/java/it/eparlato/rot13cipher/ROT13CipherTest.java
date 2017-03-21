@@ -13,13 +13,17 @@ public class ROT13CipherTest {
 
 	// "" => ""
 
-	// "A" => "N"
 	@Test
 	public void should_return_N_if_input_is_A() throws Exception {
 		assertEquals("N", ROT13Cipher.transform("A"));
 	}
 
 	// "F" => "S"
+	@Test
+	public void should_return_S_if_input_is_F() throws Exception {
+		assertEquals("S", ROT13Cipher.transform("F"));
+	}
+	
 
 	// "Z" => "M"
 
@@ -37,6 +41,12 @@ public class ROT13CipherTest {
 			if (input == null) {
 				return "";
 			} else {
+				char inputAsChar = input.charAt(0);
+				
+				if(inputAsChar >= 'A' && inputAsChar <= 'M') {
+					return "" + (char)(inputAsChar + 13);
+				}
+				
 				return "N";
 			}
 		}
