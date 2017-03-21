@@ -36,6 +36,12 @@ public class ROT13CipherTest {
 		assertEquals("o", ROT13Cipher.transform("b"));
 	}
 
+	@Test
+	public void should_return_g_if_input_is_t() throws Exception {
+		assertEquals("g", ROT13Cipher.transform("t"));
+	}
+	
+	
 	// "JeDi" => "WrQv"
 
 	// "rkgerzr" => "extreme"
@@ -56,7 +62,10 @@ public class ROT13CipherTest {
 					return "" + (char)(inputAsChar - 13);
 				} else if(inputAsChar >= 'a' && inputAsChar <= 'm') {
 					return "" + (char)(inputAsChar + 13);
+				} else if(inputAsChar >= 'n' && inputAsChar <= 'z') {
+					return "" + (char)(inputAsChar - 13);
 				}
+					
 				
 				return "";
 			}
