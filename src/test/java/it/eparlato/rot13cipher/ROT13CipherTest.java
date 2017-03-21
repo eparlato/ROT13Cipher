@@ -1,6 +1,6 @@
 package it.eparlato.rot13cipher;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 import org.junit.Ignore;
 import org.junit.Test;
@@ -48,6 +48,10 @@ public class ROT13CipherTest {
 	}
 
 	// "rkgerzr" => "extreme"
+	@Test
+	public void should_return_extreme_if_input_is_rkgerzr() throws Exception {
+		assertEquals("extreme", ROT13Cipher.transform("rkgerzr"));
+	}
 
 	// "EXTREME" => "RKGERZR"
 
