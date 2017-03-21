@@ -1,7 +1,8 @@
 package it.eparlato.rot13cipher;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 public class ROT13CipherTest {
@@ -40,9 +41,11 @@ public class ROT13CipherTest {
 	public void should_return_g_if_input_is_t() throws Exception {
 		assertEquals("g", ROT13Cipher.transform("t"));
 	}
-	
-	
-	// "JeDi" => "WrQv"
+
+	@Test
+	public void should_return_JeDi_if_input_is_WrQv() throws Exception {
+		assertEquals("JeDi", ROT13Cipher.transform("WrQv"));
+	}
 
 	// "rkgerzr" => "extreme"
 
@@ -54,20 +57,24 @@ public class ROT13CipherTest {
 			if (input == null || input.isEmpty()) {
 				return "";
 			} else {
-				char inputAsChar = input.charAt(0);
-				
-				if(inputAsChar >= 'A' && inputAsChar <= 'M') {
-					return "" + (char)(inputAsChar + 13);
-				} else if( inputAsChar >= 'N' && inputAsChar <= 'Z') {
-					return "" + (char)(inputAsChar - 13);
-				} else if(inputAsChar >= 'a' && inputAsChar <= 'm') {
-					return "" + (char)(inputAsChar + 13);
-				} else if(inputAsChar >= 'n' && inputAsChar <= 'z') {
-					return "" + (char)(inputAsChar - 13);
+
+				StringBuilder output = new StringBuilder("");
+
+				for (int i = 0; i < input.length(); i++) {
+					char inputAsChar = input.charAt(i);
+
+					if (inputAsChar >= 'A' && inputAsChar <= 'M') {
+						output.append((char) (inputAsChar + 13));
+					} else if (inputAsChar >= 'N' && inputAsChar <= 'Z') {
+						output.append((char) (inputAsChar - 13));
+					} else if (inputAsChar >= 'a' && inputAsChar <= 'm') {
+						output.append((char) (inputAsChar + 13));
+					} else if (inputAsChar >= 'n' && inputAsChar <= 'z') {
+						output.append((char) (inputAsChar - 13));
+					}
 				}
-					
-				
-				return "";
+
+				return output.toString();
 			}
 		}
 
