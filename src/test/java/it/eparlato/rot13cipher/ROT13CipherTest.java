@@ -47,14 +47,17 @@ public class ROT13CipherTest {
 		assertEquals("JeDi", ROT13Cipher.transform("WrQv"));
 	}
 
-	// "rkgerzr" => "extreme"
 	@Test
 	public void should_return_extreme_if_input_is_rkgerzr() throws Exception {
 		assertEquals("extreme", ROT13Cipher.transform("rkgerzr"));
 	}
 
 	// "EXTREME" => "RKGERZR"
-
+	@Test
+	public void should_return_RKGErZR_if_input_is_EXTReME() throws Exception {
+		assertEquals("RKGErZR", ROT13Cipher.transform("EXTReME"));
+	}
+	
 	public static class ROT13Cipher {
 
 		public static String transform(String input) {
