@@ -11,7 +11,10 @@ public class ROT13CipherTest {
 		assertEquals("", ROT13Cipher.transform(null));
 	}
 
-	// "" => ""
+	@Test
+	public void should_return_empty_if_input_is_empty() throws Exception {
+		assertEquals("", ROT13Cipher.transform(""));
+	}
 
 	@Test
 	public void should_return_N_if_input_is_A() throws Exception {
@@ -39,7 +42,7 @@ public class ROT13CipherTest {
 	public static class ROT13Cipher {
 
 		public static String transform(String input) {
-			if (input == null) {
+			if (input == null || input.isEmpty()) {
 				return "";
 			} else {
 				char inputAsChar = input.charAt(0);
@@ -50,7 +53,7 @@ public class ROT13CipherTest {
 					return "" + (char)(inputAsChar - 13);
 				}
 				
-				return "N";
+				return "";
 			}
 		}
 
