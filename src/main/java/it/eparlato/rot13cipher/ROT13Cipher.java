@@ -26,5 +26,9 @@ public class ROT13Cipher {
 			return output.toString();
 		}
 	}
+	
+	public static void main(String[] args) {
+		System.out.println(ROT13Cipher.transform("rkgerzr"));
+	}
 
 }
